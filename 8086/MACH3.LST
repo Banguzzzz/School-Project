@@ -1,0 +1,117 @@
+Microsoft (R) Macro Assembler Version 5.00                  12/6/23 17:44:10
+                                                             Page     1-1
+
+
+				.model small 
+ 0100				.stack 100h 
+ 0000				.data 
+ 0000  45 6E 74 65 72 20 54	prompt_1 db 'Enter The First Digit : $' 
+       68 65 20 46 69 72 73	
+       74 20 44 69 67 69 74	
+       20 3A 20 24		
+ 0019  45 6E 74 65 72 20 54	prompt_2 db 'Enter The Second Digit : $' 
+       68 65 20 53 65 63 6F	
+       6E 64 20 44 69 67 69	
+       74 20 3A 20 24		
+ 0033  53 75 6D 20 6F 66 20	prompt_3 db 'Sum of First and Second Digit : $'
+				 
+       46 69 72 73 74 20 61	
+       6E 64 20 53 65 63 6F	
+       6E 64 20 44 69 67 69	
+       74 20 3A 20 24		
+				 
+ 0000				.code 
+ 0000				main proc 
+ 0000  B8 ---- R		mov ax, @data 
+ 0003  8E D8			mov ds, ax 
+				 
+ 0005  8D 16 0000 R		lea dx, prompt_1 
+ 0009  B4 09			mov ah, 9 
+ 000B  CD 21			int 21h 
+				 
+ 000D  B4 01			mov ah, 1 
+ 000F  CD 21			int 21h 
+				 
+ 0011  8A D8			mov bl, al 
+ 0013  80 EB 30			sub bl, 30h 
+				 
+ 0016  B4 02			mov ah, 2 
+ 0018  B2 0D			mov dl, 0dh 
+ 001A  CD 21			int 21h 
+				 
+ 001C  B2 0A			mov dl, 0ah 
+ 001E  CD 21			int 21h 
+				 
+ 0020  8D 16 0019 R		lea dx, prompt_2 
+ 0024  B4 09			mov ah, 9 
+ 0026  CD 21			int 21h 
+				 
+ 0028  B4 01			mov ah, 1 
+ 002A  CD 21			int 21h 
+				 
+ 002C  8A F8			mov bh, al 
+ 002E  80 EF 1E			sub bh, 30 
+				 
+ 0031  B4 02			mov ah, 2 
+ 0033  B2 0D			mov dl, 0dh 
+ 0035  CD 21			int 21h 
+				 
+Microsoft (R) Macro Assembler Version 5.00                  12/6/23 17:44:10
+                                                             Page     1-2
+
+
+ 0037  B2 0A			mov dl, 0ah 
+ 0039  CD 21			int 21h 
+				 
+ 003B  8D 16 0033 R		lea dx, prompt_3 
+ 003F  B4 09			mov ah, 9 
+ 0041  CD 21			int 21h 
+				 
+ 0043  02 FB			add bh, bl 
+ 0045  80 C3 30			add bl, 30h 
+				 
+ 0048  B4 02			mov ah, 2 
+ 004A  8A D3			mov dl, bl 
+ 004C  CD 21			int 21h 
+				 
+ 004E  B4 4C			mov ah, 4ch 
+ 0050  CD 21			int 21h 
+ 0052				main endp 
+ 0052				end main 
+Microsoft (R) Macro Assembler Version 5.00                  12/6/23 17:44:10
+                                                             Symbols-1
+
+
+Segments and Groups:
+
+                N a m e         	Length	 Align	Combine Class
+
+DGROUP . . . . . . . . . . . . .  	GROUP
+  _DATA  . . . . . . . . . . . .  	0054	WORD	PUBLIC	'DATA'
+  STACK  . . . . . . . . . . . .  	0100	PARA	STACK	'STACK'
+_TEXT  . . . . . . . . . . . . .  	0052	WORD	PUBLIC	'CODE'
+
+Symbols:            
+
+                N a m e         	Type	 Value	 Attr
+
+MAIN . . . . . . . . . . . . . .  	N PROC	0000	_TEXT	Length = 0052
+
+PROMPT_1 . . . . . . . . . . . .  	L BYTE	0000	_DATA
+PROMPT_2 . . . . . . . . . . . .  	L BYTE	0019	_DATA
+PROMPT_3 . . . . . . . . . . . .  	L BYTE	0033	_DATA
+
+@CODE  . . . . . . . . . . . . .  	TEXT  _TEXT		
+@CODESIZE  . . . . . . . . . . .  	TEXT  0		
+@DATASIZE  . . . . . . . . . . .  	TEXT  0		
+@FILENAME  . . . . . . . . . . .  	TEXT  mach3		
+
+
+     61 Source  Lines
+     61 Total   Lines
+     18 Symbols
+
+  51164 + 465380 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors
